@@ -78,11 +78,7 @@ abstract class AbstractManager
      *
      * @param Array $data
      */
-    public function insert(array $data)
-    {
-        //TODO : Implements SQL INSERT request
-    }
-
+    abstract public function insert(array $data);
 
     /**
      * @param int   $id   Id of the row to update

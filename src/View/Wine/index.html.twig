@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>{{ msg }}</h1>
+    <ul>
+        {# foreach($wines as $wine) #}
+        {% for wine in wines %}
+            <li><a href="/wine/{{ wine.id }}">{{ wine.id }}. {{ wine.name }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -13,11 +13,19 @@ namespace Model;
  * Class Item
  *
  */
-class Item
+class Wine
 {
     private $id;
 
-    private $title;
+    private $name;
+
+    private $year;
+
+    private $color;
+
+    private $sparkling;
+
+    private $avgPrice;
 
     /**
      * @return int
@@ -42,19 +50,19 @@ class Item
     /**
      * @return mixed
      */
-    public function getTitle(): string
+    public function getName(): string
     {
-        return $this->title;
+        return $this->name;
     }
 
     /**
      * @param mixed $title
      *
-     * @return Item
+     * @return Wine
      */
-    public function setTitle($title):Item
+    public function setName($name):Wine
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }

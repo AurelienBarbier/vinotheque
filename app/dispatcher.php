@@ -10,6 +10,7 @@
  */
 
 
+// STEP 1 quelles uri sont dipo ?
 require_once __DIR__ . '/routing.php';
 $routesCollection = function (FastRoute\RouteCollector $r) use ($routes) {
     foreach ($routes as $controller => $actions) {
@@ -18,12 +19,15 @@ $routesCollection = function (FastRoute\RouteCollector $r) use ($routes) {
         }
     }
 };
-
 $dispatcher = FastRoute\simpleDispatcher($routesCollection);
 
+// STEP 2 Quelles est l'uri demandée
 // Fetch method and URI from somewhere
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
+
+var_dump($httpMethod);
+var_dump($uri);
 
 // Strip query string (?foo=bar) and decode URI
 if (false !== $pos = strpos($uri, '?')) {
@@ -31,6 +35,8 @@ if (false !== $pos = strpos($uri, '?')) {
 }
 $uri = rawurldecode($uri);
 
+
+// STEP 3 Est ce que ca concorde ?
 $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:

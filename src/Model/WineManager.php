@@ -12,9 +12,9 @@ namespace Model;
 /**
  *
  */
-class ItemManager extends AbstractManager
+class WineManager extends AbstractManager
 {
-    const TABLE = 'item';
+    const TABLE = 'wine';
 
     /**
      *  Initializes this class.
@@ -22,5 +22,10 @@ class ItemManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
+    }
+
+    public function insert(array $data)
+    {
+        var_dump($data);
     }
 }
